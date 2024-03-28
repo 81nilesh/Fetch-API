@@ -13,41 +13,39 @@ const Api = () => {
     }, [])
     return (
         <>
-            <h2>List of Github users</h2>
-            <div className='container-fluid mt-5'>
-                <div className='row text-center'>
-                    {
-                        user.map((curElem) => {
-                            return (
-                                <div className='col-10 col-md-4 mt-5' key={curElem.id}>
-                                    <div className='card p-2'>
-                                        <div className='d-flex align-items-center'>
-                                            <div className='image'>
-                                                <img src={curElem.thumbnailUrl} className="rounded" width="155" alt="" />
+            <h1 className="text-center"><b> List of Github users </b></h1>
+            <div className="container mt-5">
+                <div className="row">
+                    {user.map((curElem) => {
+                        return (
+                            <div className="col-12 col-sm-6 col-md-4 mb-4" key={curElem.id}>
+                                <div className="card">
+                                    <img src={curElem.thumbnailUrl} className="card-img-top rounded" alt="" />
+                                    <div className="card-body">
+                                        <h5 className="card-title">{curElem.title}</h5>
+                                        <div className="bg-primary text-white p-2 rounded d-flex justify-content-between align-items-center">
+                                            <div className="d-flex flex-column">
+                                                <span className="articles">Articles</span>
+                                                <span className="number">{curElem.articles}</span>
                                             </div>
-                                            <div className='ml-3 w-100'>
-                                                <h4 className='mb-0 mt-0 textLeft'>Nilesh</h4> <span className='textLeft'>{curElem.title}</span>
-                                                <div className='p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats'>
-                                                    <div className='d-flex flex-column'>
-                                                        <span className='articales'>Articales</span> <span className='number1'>38</span>
-                                                    </div>
-                                                    <div className='d-flex flex-column'>
-                                                        <span className='followers'>Followers</span> <span className='number2'>980</span>
-                                                    </div>
-                                                    <div className='d-flex flex-column'>
-                                                        <span className='rating'>Rating</span> <span className='number3'>8.9</span>
-                                                    </div>
-                                                </div>
+                                            <div className="d-flex flex-column">
+                                                <span className="followers">Followers</span>
+                                                <span className="number">{curElem.followers}</span>
+                                            </div>
+                                            <div className="d-flex flex-column">
+                                                <span className="rating">Rating</span>
+                                                <span className="number">{curElem.rating}</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            )
-                        })
-                    }
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </>
+
     );
 }
 
